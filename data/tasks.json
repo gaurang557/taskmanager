@@ -1,0 +1,86 @@
+[
+  {
+    "description": "Design homepage layout for the company website",
+    "assignedTo": "Rahul Sharma",
+    "expectedDateOfCompletion": "2025-10-20",
+    "dateOfAssignment": "2025-10-10",
+    "status": "In Progress"
+  },
+  {
+    "description": "Implement user authentication module",
+    "assignedTo": "Kunal Mehta",
+    "expectedDateOfCompletion": "2025-10-22",
+    "dateOfAssignment": "2025-10-11",
+    "status": "Pending"
+  },
+  {
+    "description": "Write unit tests for task management API",
+    "assignedTo": "Arnav Gupta",
+    "expectedDateOfCompletion": "2025-10-18",
+    "dateOfAssignment": "2025-10-09",
+    "status": "Completed"
+  },
+  {
+    "description": "Prepare marketing presentation slides",
+    "assignedTo": "Ishita Patel",
+    "expectedDateOfCompletion": "2025-10-19",
+    "dateOfAssignment": "2025-10-12",
+    "status": "In Progress"
+  },
+  {
+    "description": "Set up CI/CD pipeline using GitHub Actions",
+    "assignedTo": "Rohit Verma",
+    "expectedDateOfCompletion": "2025-10-25",
+    "dateOfAssignment": "2025-10-13",
+    "status": "Pending"
+  },
+  {
+    "description": "Fix UI bugs on the mobile dashboard",
+    "assignedTo": "Sneha Nair",
+    "expectedDateOfCompletion": "2025-10-17",
+    "dateOfAssignment": "2025-10-08",
+    "status": "Completed"
+  },
+  {
+    "description": "Research competitors’ pricing models",
+    "assignedTo": "Ananya Desai",
+    "expectedDateOfCompletion": "2025-10-21",
+    "dateOfAssignment": "2025-10-10",
+    "status": "In Progress"
+  },
+  {
+    "description": "Optimize database queries for performance",
+    "assignedTo": "Vikram Singh",
+    "expectedDateOfCompletion": "2025-10-24",
+    "dateOfAssignment": "2025-10-12",
+    "status": "Pending"
+  },
+  {
+    "description": "Draft content for social media campaign",
+    "assignedTo": "Priya Iyer",
+    "expectedDateOfCompletion": "2025-10-19",
+    "dateOfAssignment": "2025-10-09",
+    "status": "In Progress"
+  },
+  {
+    "description": "Integrate payment gateway with frontend",
+    "assignedTo": "Manav Kapoor",
+    "expectedDateOfCompletion": "2025-10-26",
+    "dateOfAssignment": "2025-10-11",
+    "status": "Pending"
+  },
+  {
+    "description": "Conduct usability testing session",
+    "assignedTo": "Neha Bansal",
+    "expectedDateOfCompletion": "2025-10-23",
+    "dateOfAssignment": "2025-10-10",
+    "status": "In Progress"
+  },
+  {
+    "description": "Prepare monthly performance report",
+    "assignedTo": "Amit Joshi",
+    "expectedDateOfCompletion": "2025-10-16",
+    "dateOfAssignment": "2025-10-07",
+    "status": "Completed"
+  }
+]

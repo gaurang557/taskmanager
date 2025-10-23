@@ -1,0 +1,11 @@
+  // Insert tasks into the database
+  // for (const task of formattedTasks) {
+  //   const { description, assignedTo, status, expectedDateOfCompletion, assignedDate } = task;
+  //   // await prisma.task.create({
+  //   //   data: { description, 
+  //   //     assignedTo, 
+  //   //     status, 
+  //   //     expectedDateOfCompletion: new Date(expectedDateOfCompletion), 
+  //   //     assignedDate: new Date()},
+  //   // });
+  // }
