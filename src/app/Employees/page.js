@@ -3,7 +3,7 @@ import Link from 'next/link';
 import React, { useState, useRef, useEffect } from 'react';
 import { useTaskAndEmployeeStore } from '../store/tasksandemployees';
 
-const employees = () => {
+const Employees = () => {
   const employees = useTaskAndEmployeeStore(state => state.employees);
   const setemployees = useTaskAndEmployeeStore(state => state.setemployees);
   const [showPopup, setShowPopup] = useState(false);
@@ -36,9 +36,21 @@ const employees = () => {
   }, [showPopup]);
 
   const fetchemployees = async () => {
+    try{
     const response = await fetch('/api/employees/crud');
     const data = await response.json();
-    setemployees(data);
+    if (Array.isArray(data)) {
+      setemployees(data);
+    } else if (Array.isArray(data.employees)) {
+      setemployees(data.employees);
+    } else {
+      console.error('Unexpected employees response:', data);
+      setemployees([]); // fallback to empty array
+    }
+  } catch (error) {
+    console.error('Error fetching employees:', error);
+    setemployees([]);
+  }
   };
   const deleteemployee = async (id) => {
       await fetch('/api/employees/crud', {
@@ -118,4 +130,4 @@ const employees = () => {
   );
 };
 
-export default employees;
+export default Employees;
