@@ -53,12 +53,16 @@ const AddEmployee = () => {
             </div>
             <div>
                 <label className="block text-gray-700 font-medium mb-2">Gender</label>
-                <input
-                type="text"
-                value={employee.gender}
-                onChange={(e) => setEmployee({ ...employee, gender: e.target.value })}
-                className="w-full border text-gray-400 border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
+                <select
+                    value={employee.gender}
+                    onChange={(e) => setEmployee({ ...employee, gender: e.target.value })}
+                    className="w-full border text-gray-700 border-gray-300 rounded-lg px-4 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                >
+                    <option value="">Select gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
             </div>
             <button
                 type="submit"
