@@ -2,13 +2,16 @@
 import Link from 'next/link';
 import React, { useState, useRef, useEffect } from 'react';
 import { useTaskAndEmployeeStore } from '../store/tasksandemployees';
+import { getServerSession } from "next-auth";
+import { authOptions } from "../api/auth/[...nextauth]/route";
 
-const Employees = () => {
+export default function Employees()  {
   const employees = useTaskAndEmployeeStore(state => state.employees);
   const setemployees = useTaskAndEmployeeStore(state => state.setemployees);
   const [showPopup, setShowPopup] = useState(false);
   const [employeeToDelete, setemployeeToDelete] = useState(null);
   const popupRef = useRef(null);
+  // const session = await getServerSession(authOptions);
   const formattedemployees = employees.map(employee => ({
     ...employee,
     joiningdate: new Date(employee.joiningdate),
@@ -73,25 +76,39 @@ const Employees = () => {
   return (
     <div className="flex flex-col items-center">
       <main className="p-6">
+        {/* <p>Logged in as: {session.user.email}</p> */}
         <h1 className="text-2xl font-bold mb-4 text-center">Employees List</h1>
-        <ul className="flex flex-wrap items-start space-x-4 space-y-4 text-gray-800 m-5 overflow-y-auto max-h-[70vh]">
-          {formattedemployees.map((employee, index) => (
-            <li key={index} className="border p-3 rounded-lg w-80 shadow-md bg-gray-100">
-              <p><strong>Name:</strong> {employee.name}</p>
-              <p><strong>Date of Birth:</strong> {employee.dob.toLocaleDateString()}</p>
-              <p><strong>Gender:</strong> {employee.gender}</p>
-              <p><strong>Joining Date:</strong> {employee.joiningdate.toLocaleDateString()}</p>
-              <div className="flex justify-center mt-3">
-                <button
-                  className="px-3 w-32 py-2 bg-red-400 rounded-xl text-white hover:bg-red-500"
-                  onClick={() => handleDeleteClick(employee.id)}
-                >
-                  Delete
-                </button>
-              </div>
-            </li>
-          ))}
-        </ul>
+        <div className="m-2 overflow-x-auto w-300 overflow-y-auto max-h-[70vh]">
+          <table className="border border-black border-collapse w-full text-gray-800">
+            <thead className="bg-gray-200">
+              <tr>
+                <th className="border border-black px-4 w-48 text-left">Name</th>
+                <th className="border border-black px-4 w-40 text-left">Date of Birth</th>
+                <th className="border border-black px-4 w-32 text-left">Gender</th>
+                <th className="border border-black px-4 w-48 text-left">Joining Date</th>
+                <th className="border border-black px-4 w-40 text-center">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {formattedemployees.map((employee, index) => (
+                <tr key={index} className="bg-gray-100 hover:bg-gray-200">
+                  <td className="border border-black h-1 px-1 py-1 overflow-x-auto">{employee.name}</td>
+                  <td className="border border-black h-1 px-1 py-1">{employee.dob.toLocaleDateString()}</td>
+                  <td className="border border-black h-1 px-1 py-1">{employee.gender}</td>
+                  <td className="border border-black h-1 px-1 py-1">{employee.joiningdate.toLocaleDateString()}</td>
+                  <td className="border border-black h-1 px-1 py-1 text-center">
+                    <button
+                      className="px-3 w-24 bg-red-400 rounded-md text-white hover:bg-red-500"
+                      onClick={() => handleDeleteClick(employee.id)}
+                    >
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </main>
       <Link href="/AddEmployee">
         <button className="mt-4 w-64 px-4 py-2 bg-blue-500 text-white text-lg rounded-lg hover:bg-blue-600">Add employee</button>
@@ -129,5 +146,3 @@ const Employees = () => {
     </div>
   );
 };
-
-export default Employees;

@@ -2,7 +2,6 @@
 import AddTaskForm from '../components/AddTaskForm.js';
 import React from 'react'
 
-
 const Addtask = () => {
 
     const [task, setTask] = React.useState({
@@ -15,6 +14,8 @@ const Addtask = () => {
 
     const handleClick = async (e) => {
         e.preventDefault();
+        console.log(task.assignedDate);
+        console.log(task.expectedDateOfCompletion);
         const objmapped = {
             ...task,
             expectedDateOfCompletion: new Date(task.expectedDateOfCompletion).toISOString(),
@@ -35,7 +36,6 @@ const Addtask = () => {
     }
   return (
     <div>
-        <h1>Add Task Page</h1>
         <AddTaskForm task={task} setTask={setTask} handleClick={handleClick} />
     </div>
   )

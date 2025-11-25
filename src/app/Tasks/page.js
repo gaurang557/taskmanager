@@ -43,7 +43,7 @@ const Tasks = () => {
     setTasks(data);
   };
   const deleteTask = async (id) => {
-      await fetch('/api/tasks/crud', {
+    await fetch('/api/tasks/crud', {
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ id }),
@@ -74,7 +74,7 @@ const Tasks = () => {
         <ul className="flex flex-wrap items-start space-x-4 space-y-4 text-gray-800 m-5 overflow-y-auto max-h-[70vh]">
           {formattedTasks.map((task, index) => (
             <li key={index} className="border p-3 w-80 rounded-lg shadow-md bg-gray-100">
-              <p><strong>Description:</strong> {task.description}</p>
+              <p className="overflow-x-auto whitespace-nowrap"><strong>Description:</strong> {task.description}</p>
               <p><strong>Assigned To:</strong> {task.assignedTo}</p>
               <p><strong>Status:</strong> {task.status}</p>
               <p><strong>Expected Completion:</strong> {task.expectedDateOfCompletion.toLocaleDateString()}</p>
@@ -95,8 +95,8 @@ const Tasks = () => {
         <button className="mt-4 w-64 px-4 py-2 bg-blue-500 text-white text-lg rounded-lg hover:bg-blue-600">Add Task</button>
       </Link>
       <button onClick={handleBack} className="mt-4 w-64 px-4 py-2 bg-green-400 text-white text-lg rounded-lg hover:bg-green-600">Back</button>
-      
-    {showPopup && (
+
+      {showPopup && (
         <div className="text-gray-800 fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
           <div
             ref={popupRef}
